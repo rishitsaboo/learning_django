@@ -3,6 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    path('home', views.home), # URL for the home page
-    path('authorized', views.authorized), # URL for the authorized page
+    path('home', views.HomeView.as_view()), # URL for the home page
+    path('authorized', views.AuthorizedView.as_view()), # URL for the authorized page
 ]
