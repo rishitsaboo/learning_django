@@ -1,13 +1,11 @@
-<html>
-    <head>
-        <TItle>
-            Welcome to SmartNotes
-        </TItle>
-        <body>
-            <h1>Welcome to SmartNotes</h1>
-            <p>SmartNotes is a powerful note-taking application that helps you organize your thoughts and ideas.</p>
-            <p>To get started, please log in or create an account.</p>
-            <p>Today is {{today}}</p>
-        </body>
-    </head>
-</html>
+{%extends "base.html" %}
+{% block content %}
+    <h1>Welcome to SmartNotes</h1>
+    <p>SmartNotes is a powerful note-taking application that helps you organize your thoughts and ideas.</p>
+    <p>To get started, please log in or create an account.</p>
+    <p>Today is {{today}}</p>
+    <a href = "{% url 'notes.list' %}" class="btn btn-primary">Check out these smart Notes</a>
+
+    <h2 class="my-5">Some Advantages of this page</h2>
+    {% include "home/advantages.html" %}
+{%endblock%}

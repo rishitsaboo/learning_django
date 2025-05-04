@@ -8,7 +8,7 @@ class NotesListView(ListView):
     context_object_name = 'notes'
     template_name = 'notes/notes_list.html'
     def get_queryset(self):
-        return Notes.objects.filter(likes__gt = 1)
+        return Notes.objects.filter(likes__gte = 1)
 
 class NotesDetailView(DetailView):
     model = Notes

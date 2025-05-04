@@ -1,13 +1,22 @@
-<html>
-    <head>
-        <title>Notes List</title>
-    </head>
-    <body>
-        <h1>these are Notes</h1>
-        <ul>
-            {% for note in notes %}
-                <li>{{note.title}} - Likes:{{note.Likes}}</li>          
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="my-6">These are Notes:</h1>
+  <div class="row row-cols-3 g-10">
+    {% for note in notes %}
+      <div class="col">
+        <div class="p-3 border">
+          {% if note.id %}
+            <a href="{% url 'notes.detail' pk=note.id %}" class="text-dark text-decoration-none">
+              <h3>{{ note.title }}</h3>
+            </a>
+            {{ note.text|truncatechars:10 }}
+          {% else %}
+            <h3>{{ note.title }}</h3>
+            <p class="text-danger">(No detail view available — missing ID)</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
